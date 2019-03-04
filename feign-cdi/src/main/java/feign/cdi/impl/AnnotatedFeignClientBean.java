@@ -89,8 +89,8 @@ class AnnotatedFeignClientBean implements Bean<Object> {
     @Override
     public Class<? extends Annotation> getScope() {
         for(Annotation annotation : interfaceClass.getAnnotations()) {
-            if(annotation.getClass().getAnnotation(Scope.class) != null) {
-                return annotation.getClass();
+            if(annotation.annotationType().getAnnotation(Scope.class) != null) {
+                return annotation.annotationType();
             }
         }
         return Dependent.class;
